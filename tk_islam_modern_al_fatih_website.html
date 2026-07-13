@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TK Islam Modern Al-Fatih - Tanganapada, Baubau</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#F0FDF4',  /* Mint soft */
+                            primary: '#059669', /* Emerald */
+                            secondary: '#10B981', /* Green */
+                            dark: '#064E3B', /* Dark emerald */
+                            accent: '#FBBF24', /* Gold/Amber */
+                            cream: '#FFFBEB' /* Warm cream */
+                        }
+                    },
+                    fontFamily: {
+                        quicksand: ['Quicksand', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts (Quicksand & Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+        }
+        .header-bg {
+            background-image: radial-gradient(circle at top right, rgba(16, 185, 129, 0.1) 0%, transparent 60%);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased header-bg min-h-screen">
+
+    <!-- TOP BAR INFO -->
+    <div class="bg-brand-dark text-white text-xs md:text-sm py-2 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-4">
+                <span><i class="fa-solid fa-location-dot text-brand-accent mr-1"></i> Tanganapada, Kota Baubau, Sultra</span>
+                <span class="hidden md:inline">|</span>
+                <span class="hidden md:inline"><i class="fa-solid fa-clock text-brand-accent mr-1"></i> Senin - Jumat: 07.30 - 11.00 WITA</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/628123456789" target="_blank" class="hover:text-brand-accent transition"><i class="fa-brands fa-whatsapp mr-1"></i> Hubungi Kami</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN NAVIGATION -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-emerald-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 rounded-2xl bg-brand-primary flex items-center justify-center text-white text-2xl font-bold shadow-md shadow-emerald-200 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-mosque"></i>
+                </div>
+                <div>
+                    <span class="block text-lg font-bold text-brand-dark tracking-tight leading-none">AL-FATIH</span>
+                    <span class="block text-xs font-semibold text-brand-secondary tracking-wider mt-1">TK ISLAM MODERN</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <div class="hidden lg:flex items-center gap-8 font-semibold text-slate-600">
+                <a href="#beranda" class="hover:text-brand-primary transition">Beranda</a>
+                <a href="#profil" class="hover:text-brand-primary transition">Profil</a>
+                <a href="#program" class="hover:text-brand-primary transition">Program Unggulan</a>
+                <a href="#biaya" class="hover:text-brand-primary transition">Simulasi Biaya</a>
+                <a href="#ppdb" class="hover:text-brand-primary transition">PPDB Online</a>
+                <a href="#kontak" class="hover:text-brand-primary transition">Kontak</a>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="hidden lg:block">
+                <a href="#ppdb" class="bg-brand-primary hover:bg-brand-dark text-white font-bold py-3 px-6 rounded-xl transition duration-300 shadow-lg shadow-emerald-100 flex items-center gap-2">
+                    <i class="fa-solid fa-user-plus text-sm"></i> Daftar Sekarang
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-slate-700 hover:text-brand-primary text-2xl focus:outline-none" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </nav>
+
+        <!-- Mobile Drawer menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-emerald-50 px-4 pt-2 pb-6 space-y-3 shadow-lg">
+            <a href="#beranda" class="block py-2 px-3 rounded-lg hover:bg-brand-light font-semibold text-slate-700">Beranda</a>
+            <a href="#profil" class="block py-2 px-3 rounded-lg hover:bg-brand-light font-semibold text-slate-700">Profil</a>
+            <a href="#program" class="block py-2 px-3 rounded-lg hover:bg-brand-light font-semibold text-slate-700">Program Unggulan</a>
+            <a href="#biaya" class="block py-2 px-3 rounded-lg hover:bg-brand-light font-semibold text-slate-700">Simulasi Biaya</a>
+            <a href="#ppdb" class="block py-2 px-3 rounded-lg hover:bg-brand-light font-semibold text-slate-700">PPDB Online</a>
+            <a href="#kontak" class="block py-2 px-3 rounded-lg hover:bg-brand-light font-semibold text-slate-700">Kontak</a>
+            <div class="pt-2">
+                <a href="#ppdb" class="w-full text-center block bg-brand-primary hover:bg-brand-dark text-white font-bold py-3 rounded-xl transition shadow-md shadow-emerald-100">
+                    <i class="fa-solid fa-user-plus mr-1"></i> Daftar Sekarang
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="beranda" class="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-32 bg-gradient-to-b from-emerald-50/40 via-white to-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-brand-light border border-brand-primary/20 text-brand-dark font-bold px-4 py-2 rounded-full text-sm">
+                        <span class="flex h-2.5 w-2.5 rounded-full bg-brand-accent animate-pulse"></span>
+                        Penerimaan Peserta Didik Baru (PPDB) TA 2026/2027 Dibuka!
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight">
+                        Membentuk Generasi <span class="text-brand-primary relative">Qur'ani<span class="absolute bottom-0 left-0 w-full h-2 bg-brand-accent/30 rounded-full"></span></span>, Cerdas & Berkarakter Modern
+                    </h1>
+                    
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Selamat datang di <strong>TK Islam Modern Al-Fatih Tanganapada</strong>. Kami mengintegrasikan kurikulum nasional, pengenalan teknologi ramah anak, dan nilai-nilai Islami untuk bekal terbaik masa depan ananda.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4 pt-4">
+                        <a href="#ppdb" class="w-full sm:w-auto bg-brand-primary hover:bg-brand-dark text-white font-bold py-4 px-8 rounded-2xl transition duration-300 shadow-xl shadow-emerald-100 flex items-center justify-center gap-3 group text-lg">
+                            Daftar PPDB Online <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="#biaya" class="w-full sm:w-auto bg-white border-2 border-brand-primary hover:bg-brand-light text-brand-primary font-bold py-4 px-8 rounded-2xl transition duration-300 flex items-center justify-center gap-2 text-lg">
+                            <i class="fa-solid fa-calculator text-brand-secondary"></i> Estimasi Biaya
+                        </a>
+                    </div>
+
+                    <!-- Trust indicators -->
+                    <div class="grid grid-cols-3 gap-4 pt-8 border-t border-slate-100 max-w-md mx-auto lg:mx-0">
+                        <div class="text-center lg:text-left">
+                            <span class="block text-2xl lg:text-3xl font-extrabold text-brand-primary">A</span>
+                            <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Akreditasi</span>
+                        </div>
+                        <div class="text-center lg:text-left border-x border-slate-100 px-4">
+                            <span class="block text-2xl lg:text-3xl font-extrabold text-brand-primary">100%</span>
+                            <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Guru Muslimah</span>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <span class="block text-2xl lg:text-3xl font-extrabold text-brand-primary">5+</span>
+                            <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Prog. Unggulan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual: SVG Kids and Islamic school illustration -->
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div class="absolute -inset-4 bg-emerald-100 rounded-3xl blur-2xl opacity-55 animate-pulse"></div>
+                    <div class="relative bg-white p-6 rounded-[2.5rem] shadow-2xl border border-slate-100 w-full max-w-md">
+                        <!-- Decorative Header -->
+                        <div class="bg-gradient-to-br from-brand-primary to-brand-dark text-white p-6 rounded-3xl text-center relative overflow-hidden mb-6">
+                            <div class="absolute top-0 right-0 opacity-10 text-9xl -mr-10 -mt-10">
+                                <i class="fa-solid fa-moon"></i>
+                            </div>
+                            <span class="text-xs uppercase tracking-widest font-bold text-brand-accent">Baitul Qur'an</span>
+                            <h3 class="text-xl font-bold mt-1">Metode Belajar Modern</h3>
+                            <p class="text-xs text-emerald-100 mt-1">Interaktif & Menyenangkan untuk Anak Usia Dini</p>
+                        </div>
+
+                        <!-- Fun school dynamic badge -->
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4 p-3 bg-brand-light rounded-2xl hover:scale-[1.02] transition-transform">
+                                <div class="w-12 h-12 rounded-xl bg-brand-accent/20 flex items-center justify-center text-brand-accent text-xl">
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-800 text-sm">Tahfidz Junior & Adab</h4>
+                                    <p class="text-xs text-slate-500">Hafalan juz 30 & pembiasaan doa harian</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-4 p-3 bg-indigo-50/50 rounded-2xl hover:scale-[1.02] transition-transform">
+                                <div class="w-12 h-12 rounded-xl bg-indigo-100 flex items-center justify-center text-indigo-500 text-xl">
+                                    <i class="fa-solid fa-robot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-800 text-sm">Pengenalan Bahasa & STEAM</h4>
+                                    <p class="text-xs text-slate-500">Bahasa Inggris dasar & sains dasar kreatif</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-4 p-3 bg-amber-50/50 rounded-2xl hover:scale-[1.02] transition-transform">
+                                <div class="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center text-amber-500 text-xl">
+                                    <i class="fa-solid fa-heart"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-800 text-sm">Lingkungan Aman & Nyaman</h4>
+                                    <p class="text-xs text-slate-500">Area ber-AC, CCTV & Guru Penyayang</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- VISI & MISI & PROFIL SECTION -->
+    <section id="profil" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-secondary font-bold uppercase tracking-wider text-sm">Tentang Al-Fatih</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">Membimbing dengan Kasih Sayang, Mendidik dengan Al-Qur'an</h2>
+                <div class="w-24 h-1 bg-brand-primary mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-600 mt-4 text-base sm:text-lg">
+                    Berdiri kokoh di tengah Kelurahan Tanganapada, Kota Baubau, kami berkomitmen untuk melahirkan generasi yang tidak hanya unggul dalam kognitif, namun kokoh dalam aqidah Islamiyah sejak belia.
+                </p>
+            </div>
+
+            <!-- Visi & Misi Card Layout -->
+            <div class="grid md:grid-cols-2 gap-8 items-stretch">
+                <!-- Visi -->
+                <div class="bg-gradient-to-br from-brand-light to-emerald-50/30 p-8 sm:p-10 rounded-3xl border border-brand-primary/10 shadow-sm flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 rounded-2xl bg-brand-primary flex items-center justify-center text-white text-2xl shadow-md">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-brand-dark">Visi Kami</h3>
+                        <p class="text-slate-700 leading-relaxed text-lg italic font-medium">
+                            "Menjadi lembaga pendidikan anak usia dini Islam yang unggul, modern, berkarakter rabbani, serta mandiri di Kota Baubau pada tahun 2030."
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-6 border-t border-brand-primary/10 flex items-center gap-3 text-brand-primary font-bold">
+                        <i class="fa-solid fa-circle-check"></i> Berorientasi Akhlakul Karimah & IPTEK
+                    </div>
+                </div>
+
+                <!-- Misi -->
+                <div class="bg-slate-50 p-8 sm:p-10 rounded-3xl border border-slate-200/60 shadow-sm space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-2xl bg-brand-accent flex items-center justify-center text-slate-900 text-2xl shadow-md">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900">Misi Kami</h3>
+                    </div>
+                    <ul class="space-y-4 text-slate-600">
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center font-bold text-xs shrink-0 mt-1">1</span>
+                            <span>Menanamkan rasa cinta kepada Allah dan Rasul-Nya melalui pembiasaan ibadah harian & adab islami.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center font-bold text-xs shrink-0 mt-1">2</span>
+                            <span>Menyelenggarakan kegiatan bermain-belajar yang merangsang kreativitas berpikir kritis dan kemandirian anak.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center font-bold text-xs shrink-0 mt-1">3</span>
+                            <span>Menerapkan kurikulum STEAM (Science, Technology, Engineering, Art, Math) yang disesuaikan dengan tumbuh kembang anak usia dini.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAM UNGGULAN SECTION -->
+    <section id="program" class="py-20 bg-gradient-to-b from-white to-slate-50/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-secondary font-bold uppercase tracking-wider text-sm">Pilar Pembelajaran</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">Program Unggulan Islam Modern</h2>
+                <div class="w-24 h-1 bg-brand-primary mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-600 mt-4">
+                    Kurikulum seimbang yang mengintegrasikan pembelajaran spiritual dengan kecakapan hidup modern abad 21.
+                </p>
+            </div>
+
+            <!-- Program Cards Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Program 1 -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-lg hover:shadow-xl hover:-translate-y-1 transition duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-brand-primary flex items-center justify-center text-xl font-bold mb-6">
+                        <i class="fa-solid fa-book-open-reader"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Tahfidz Junior (Juz 30)</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Metode visual menyenangkan untuk menghafal surah pendek, doa harian, dan melantunkan ayat suci Al-Qur'an secara tartil.
+                    </p>
+                    <span class="text-brand-primary font-semibold text-xs uppercase bg-brand-light py-1 px-3 rounded-full">Target: Juz Amma</span>
+                </div>
+
+                <!-- Program 2 -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-lg hover:shadow-xl hover:-translate-y-1 transition duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-100 text-brand-accent flex items-center justify-center text-xl font-bold mb-6">
+                        <i class="fa-solid fa-hands-holding-child"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Pendidikan Adab & Karakter</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Fokus pada sopan santun, berbakti kepada orang tua, mandiri, peduli sesama melalui hadits-hadits ringkas sehari-hari.
+                    </p>
+                    <span class="text-brand-accent font-semibold text-xs uppercase bg-amber-50 py-1 px-3 rounded-full">Harian & Berkelanjutan</span>
+                </div>
+
+                <!-- Program 3 -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-lg hover:shadow-xl hover:-translate-y-1 transition duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-xl font-bold mb-6">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Fun English & STEAM</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Eksperimen sains sederhana, pemecahan masalah (STEAM) dan pengenalan kosakata bahasa Inggris dasar lewat nyanyian seru.
+                    </p>
+                    <span class="text-indigo-600 font-semibold text-xs uppercase bg-indigo-50 py-1 px-3 rounded-full">Kreatif & Logis</span>
+                </div>
+
+                <!-- Program 4 -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-lg hover:shadow-xl hover:-translate-y-1 transition duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center text-xl font-bold mb-6">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Seni Islam & Kaligrafi</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Mengembangkan motorik halus anak melalui kegiatan melukis, seni kerajinan tangan islami, dan mewarnai kaligrafi.
+                    </p>
+                    <span class="text-rose-600 font-semibold text-xs uppercase bg-rose-50 py-1 px-3 rounded-full">Kreativitas Seni</span>
+                </div>
+
+                <!-- Program 5 -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-lg hover:shadow-xl hover:-translate-y-1 transition duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center text-xl font-bold mb-6">
+                        <i class="fa-solid fa-campground"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Outing Class & Market Day</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Kunjungan edukatif luar sekolah ke tempat bersejarah/alam di Baubau dan simulasi wirausaha cilik untuk melatih kemandirian.
+                    </p>
+                    <span class="text-sky-600 font-semibold text-xs uppercase bg-sky-50 py-1 px-3 rounded-full">Kecakapan Sosial</span>
+                </div>
+
+                <!-- Program 6 -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-lg hover:shadow-xl hover:-translate-y-1 transition duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-teal-100 text-teal-600 flex items-center justify-center text-xl font-bold mb-6">
+                        <i class="fa-solid fa-mosque"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Praktek Sholat & Wudhu</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Pembiasaan sholat dhuha berjamaah dan tata cara berwudhu yang benar di mushola khusus sekolah kami.
+                    </p>
+                    <span class="text-teal-600 font-semibold text-xs uppercase bg-teal-50 py-1 px-3 rounded-full">Spiritualitas Anak</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PPDB FEES CALCULATOR SECTION -->
+    <section id="biaya" class="py-20 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Information -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-brand-secondary font-bold uppercase tracking-wider text-sm">Transparansi Biaya</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Kalkulator Simulasi PPDB Mandiri</h2>
+                    <p class="text-slate-600 leading-relaxed">
+                        Kami menjamin transparansi tanpa biaya tersembunyi. Silakan gunakan kalkulator ini untuk mensimulasikan rincian uang pangkal, SPP, dan diskon pendaftaran yang berlaku.
+                    </p>
+
+                    <div class="space-y-4 bg-white p-6 rounded-2xl border border-emerald-100 shadow-sm">
+                        <h4 class="font-bold text-brand-dark flex items-center gap-2">
+                            <i class="fa-solid fa-gift text-brand-accent"></i> Program Diskon Berlaku:
+                        </h4>
+                        <ul class="space-y-2 text-sm text-slate-600">
+                            <li class="flex justify-between">
+                                <span>1. Diskon Saudara Kandung</span>
+                                <span class="font-bold text-brand-primary">Diskon 10% Uang Pangkal</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>2. Pelunasan di Awal</span>
+                                <span class="font-bold text-brand-primary">Potongan Rp 250.000</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Interactive Calculator Widget -->
+                <div class="lg:col-span-7 bg-white p-8 rounded-3xl border border-slate-100 shadow-xl">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-calculator text-brand-primary"></i> Estimasi Biaya PPDB
+                    </h3>
+
+                    <div class="space-y-6">
+                        <!-- Option: Class Level Selection -->
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Pilih Kelompok Kelas:</label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <label class="border-2 border-brand-primary bg-brand-light p-4 rounded-xl cursor-pointer flex flex-col items-center justify-center text-center transition hover:border-brand-primary focus-within:ring-2 focus-within:ring-brand-primary">
+                                    <input type="radio" name="kelas" value="TK-A" checked class="sr-only" onchange="hitungBiaya()">
+                                    <span class="font-bold text-brand-dark">TK - Kelompok A</span>
+                                    <span class="text-xs text-slate-500 mt-1">Usia 4 - 5 Tahun</span>
+                                </label>
+                                <label class="border border-slate-200 p-4 rounded-xl cursor-pointer flex flex-col items-center justify-center text-center transition hover:border-brand-primary focus-within:ring-2 focus-within:ring-brand-primary">
+                                    <input type="radio" name="kelas" value="TK-B" class="sr-only" onchange="hitungBiaya()">
+                                    <span class="font-bold text-slate-700">TK - Kelompok B</span>
+                                    <span class="text-xs text-slate-500 mt-1">Usia 5 - 6 Tahun</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Checkboxes for Discounts -->
+                        <div class="space-y-3">
+                            <label class="block text-sm font-semibold text-slate-700">Potongan Harga Khusus:</label>
+                            
+                            <label class="flex items-start gap-3 p-3 bg-slate-50 rounded-xl cursor-pointer hover:bg-slate-100 transition">
+                                <input type="checkbox" id="diskonKandung" class="mt-1 rounded text-brand-primary focus:ring-brand-primary" onchange="hitungBiaya()">
+                                <div>
+                                    <span class="block text-sm font-bold text-slate-800">Memiliki Kakak/Adik Kandung di Sini (Diskon 10%)</span>
+                                    <span class="text-xs text-slate-500">Mendapatkan potongan 10% dari nominal uang pangkal masuk.</span>
+                                </div>
+                            </label>
+
+                            <label class="flex items-start gap-3 p-3 bg-slate-50 rounded-xl cursor-pointer hover:bg-slate-100 transition">
+                                <input type="checkbox" id="diskonLunas" class="mt-1 rounded text-brand-primary focus:ring-brand-primary" onchange="hitungBiaya()">
+                                <div>
+                                    <span class="block text-sm font-bold text-slate-800">Melunasi Biaya Masuk Sekaligus (Potongan Rp 250.000)</span>
+                                    <span class="text-xs text-slate-500">Potongan langsung jika melunasi uang pangkal pada saat daftar ulang.</span>
+                                </div>
+                            </label>
+                        </div>
+
+                        <!-- Live Cost calculation breakdown -->
+                        <div class="p-6 bg-slate-900 text-white rounded-2xl space-y-4">
+                            <div class="flex justify-between border-b border-slate-700 pb-3 text-sm">
+                                <span class="text-slate-400">Uang Pangkal Pangkal (Standar)</span>
+                                <span id="nominalPangkal" class="font-mono">Rp 1.500.000</span>
+                            </div>
+                            <div class="flex justify-between border-b border-slate-700 pb-3 text-sm">
+                                <span class="text-slate-400">SPP Bulanan (Juli)</span>
+                                <span id="nominalSPP" class="font-mono">Rp 150.000</span>
+                            </div>
+                            <div class="flex justify-between border-b border-slate-700 pb-3 text-sm text-rose-400">
+                                <span>Total Potongan</span>
+                                <span id="nominalDiskon" class="font-mono">-Rp 0</span>
+                            </div>
+                            <div class="flex justify-between pt-2">
+                                <span class="text-lg font-bold">Total Pembayaran Awal</span>
+                                <span id="nominalTotal" class="text-xl font-bold text-brand-accent font-mono">Rp 1.650.000</span>
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-slate-400 italic text-center">
+                            *Rincian di atas bersifat estimasi awal dan dapat berubah berdasarkan kebijakan panitia PPDB.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PPDB ONLINE REGISTRATION SECTION -->
+    <section id="ppdb" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-brand-secondary font-bold uppercase tracking-wider text-sm">Pendaftaran Murid Baru</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">Formulir PPDB Online TA 2026/2027</h2>
+                <div class="w-24 h-1 bg-brand-primary mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-600 mt-4">
+                    Isi formulir pendaftaran di bawah ini secara lengkap. Panitia PPDB kami akan segera menghubungi Anda dalam 1x24 jam melalui WhatsApp.
+                </p>
+            </div>
+
+            <!-- Form -->
+            <form id="ppdbForm" onsubmit="submitForm(event)" class="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200/80 shadow-lg space-y-6">
+                
+                <h3 class="text-lg font-bold text-brand-dark border-b pb-2 mb-4"><i class="fa-solid fa-child mr-2"></i> DATA CALON SISWA</h3>
+                
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-1">Nama Lengkap Anak <span class="text-rose-500">*</span></label>
+                        <input type="text" id="namaAnak" required placeholder="Contoh: Muhammad Al-Fatih" class="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-1">Nama Panggilan Anak <span class="text-rose-500">*</span></label>
+                        <input type="text" id="panggilanAnak" required placeholder="Contoh: Fatih" class="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary">
+                    </div>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-1">Tempat Lahir <span class="text-rose-500">*</span></label>
+                        <input type="text" id="tempatLahir" required placeholder="Contoh: Baubau" class="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-1">Tanggal Lahir <span class="text-rose-500">*</span></label>
+                        <input type="date" id="tanggalLahir" required class="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary">
+                    </div>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-1">Jenis Kelamin <span class="text-rose-500">*</span></label>
+                        <select id="gender" required class="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-primary">
+                            <option value="">-- Pilih --</option>
+                            <option value="Laki-laki">Laki-laki</option>
+                            <option value="Perempuan">Perempuan</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-1">Pilihan Kelas <span class="text-rose-500">*</span></label>
+                        <select id="pilihanKelas" required class="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-primary">
+                            <option value="">-- Pilih Kelompok Kelas --</option>
+                            <option value="TK-A">TK-A (Usia 4-5 Tahun)</option>
+                            <option value="TK-B">TK-B (Usia 5-6 Tahun)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <h3 class="text-lg font-bold text-brand-dark border-b pb-2 mt-8 mb-4"><i class="fa-solid fa-users mr-2"></i> DATA ORANG TUA / WALI</h3>
+
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-1">Nama Ayah / Ibu / Wali <span class="text-rose-500">*</span></label>
+                        <input type="text" id="namaOrtu" required placeholder="Contoh: Ahmad Rahman" class="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-1">Nomor WhatsApp Aktif <span class="text-rose-500">*</span></label>
+                        <input type="tel" id="telepon" required placeholder="Contoh: 08123456789" class="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">Alamat Rumah Lengkap (Area Tanganapada) <span class="text-rose-500">*</span></label>
+                    <textarea id="alamat" required rows="3" placeholder="Contoh: Jl. Murhum No. 45, Kel. Tanganapada, Kota Baubau" class="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary"></textarea>
+                </div>
+
+                <div class="flex items-center gap-2 py-2">
+                    <input type="checkbox" id="agree" required class="rounded text-brand-primary focus:ring-brand-primary">
+                    <label for="agree" class="text-sm text-slate-600">Saya menyatakan bahwa seluruh data yang diisi di atas adalah benar dan sesuai asli.</label>
+                </div>
+
+                <button type="submit" class="w-full bg-brand-primary hover:bg-brand-dark text-white font-bold py-4 rounded-2xl transition duration-300 shadow-lg shadow-emerald-100 text-lg flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i> Kirim Formulir Pendaftaran
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- CUSTOM DIALOGS & NOTIFICATION TOAST -->
+    <div id="successModal" class="hidden fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+            <!-- Background overlay -->
+            <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" aria-hidden="true"></div>
+            
+            <!-- Modal Content Alignment -->
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+            <div class="inline-block align-bottom bg-white rounded-3xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full p-8 border border-emerald-50">
+                <div class="text-center">
+                    <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-emerald-100 text-brand-primary text-3xl mb-6">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900" id="modal-title">Pendaftaran Terkirim!</h3>
+                    <p class="text-slate-600 mt-4">
+                        Alhamdulillah, formulir PPDB online atas nama <strong id="modalNamaAnak" class="text-brand-primary"></strong> telah berhasil kami terima.
+                    </p>
+                    <div class="mt-6 p-4 bg-brand-light rounded-2xl border border-brand-primary/20 text-left space-y-2 text-sm text-brand-dark">
+                        <p class="font-bold flex items-center gap-1"><i class="fa-solid fa-circle-info"></i> Langkah selanjutnya:</p>
+                        <ol class="list-decimal pl-4 space-y-1">
+                            <li>Simpan tanda pendaftaran online ini.</li>
+                            <li>Wali kelas kami akan segera mengirimkan konfirmasi via WhatsApp ke nomor Anda.</li>
+                            <li>Melakukan survei fasilitas fisik sekolah di Tanganapada jika dikehendaki.</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="mt-8">
+                    <button type="button" onclick="closeModal()" class="w-full inline-flex justify-center rounded-2xl border border-transparent shadow-md px-6 py-3 bg-brand-primary hover:bg-brand-dark text-base font-bold text-white focus:outline-none transition">
+                        Alhamdulillah, Terima Kasih
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GALLERY & FACILITIES SECTION -->
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-secondary font-bold uppercase tracking-wider text-sm">Fasilitas & Lingkungan</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">Dukung Tumbuh Kembang Ananda</h2>
+                <div class="w-24 h-1 bg-brand-primary mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-600 mt-4">
+                    TK Islam Modern Al-Fatih didesain agar ramah anak, aman, modern, dan memberikan stimulasi edukasi terbaik.
+                </p>
+            </div>
+
+            <!-- Facilities Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Facility Item 1 -->
+                <div class="group bg-white rounded-3xl overflow-hidden shadow-md border border-slate-100 hover:shadow-xl transition duration-300">
+                    <img src="https://placehold.co/600x450/059669/FFF?text=Ruang+Kelas+Modern" alt="Ruang Kelas AC" class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
+                    <div class="p-6">
+                        <h4 class="font-bold text-slate-800 text-lg">Kelas Ber-AC & LCD</h4>
+                        <p class="text-xs text-slate-500 mt-1">Pembelajaran digital visual interaktif dengan kapasitas nyaman.</p>
+                    </div>
+                </div>
+
+                <!-- Facility Item 2 -->
+                <div class="group bg-white rounded-3xl overflow-hidden shadow-md border border-slate-100 hover:shadow-xl transition duration-300">
+                    <img src="https://placehold.co/600x450/10B981/FFF?text=Arena+Bermain+Anak" alt="Playground Indoor" class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
+                    <div class="p-6">
+                        <h4 class="font-bold text-slate-800 text-lg">Playground Indoor</h4>
+                        <p class="text-xs text-slate-500 mt-1">Area bermain melatih motorik kasar dengan bantalan empuk yang aman.</p>
+                    </div>
+                </div>
+
+                <!-- Facility Item 3 -->
+                <div class="group bg-white rounded-3xl overflow-hidden shadow-md border border-slate-100 hover:shadow-xl transition duration-300">
+                    <img src="https://placehold.co/600x450/064E3B/FFF?text=Mushola+Anak+Islam" alt="Mushola TK" class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
+                    <div class="p-6">
+                        <h4 class="font-bold text-slate-800 text-lg">Mushola Edukatif</h4>
+                        <p class="text-xs text-slate-500 mt-1">Sarana praktek wudhu dan gerakan sholat wajib berjamaah.</p>
+                    </div>
+                </div>
+
+                <!-- Facility Item 4 -->
+                <div class="group bg-white rounded-3xl overflow-hidden shadow-md border border-slate-100 hover:shadow-xl transition duration-300">
+                    <img src="https://placehold.co/600x450/FBBF24/333?text=Perpustakaan+TK+Cilik" alt="Perpustakaan Islam" class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
+                    <div class="p-6">
+                        <h4 class="font-bold text-slate-800 text-lg">Pojok Baca Islami</h4>
+                        <p class="text-xs text-slate-500 mt-1">Ratusan buku cerita bergambar interaktif kisah Nabi & sains cilik.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION (Accordion) -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-brand-secondary font-bold uppercase tracking-wider text-sm">Masih Ada Pertanyaan?</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">Pertanyaan yang Sering Diajukan</h2>
+                <div class="w-24 h-1 bg-brand-primary mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- FAQ Wrapper -->
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="border border-slate-200 rounded-2xl overflow-hidden">
+                    <button class="w-full text-left p-6 font-bold text-slate-800 flex justify-between items-center bg-slate-50 hover:bg-slate-100/80 transition" onclick="toggleFaq(this)">
+                        <span>Apakah di TK Al-Fatih anak diajarkan membaca (Calistung) secara ketat?</span>
+                        <i class="fa-solid fa-chevron-down text-sm transition-transform duration-200"></i>
+                    </button>
+                    <div class="hidden p-6 text-slate-600 bg-white border-t border-slate-100">
+                        Tidak. Sesuai dengan anjuran kemendikbud, kami mengajarkan calistung secara menyenangkan tanpa paksaan melalui media visual, tebak gambar, lagu, permainan bongkar pasang, dan metode interaktif yang adaptif bagi kenyamanan psikologis anak.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="border border-slate-200 rounded-2xl overflow-hidden">
+                    <button class="w-full text-left p-6 font-bold text-slate-800 flex justify-between items-center bg-slate-50 hover:bg-slate-100/80 transition" onclick="toggleFaq(this)">
+                        <span>Bagaimana sistem jemput dan keamanan anak di Tanganapada?</span>
+                        <i class="fa-solid fa-chevron-down text-sm transition-transform duration-200"></i>
+                    </button>
+                    <div class="hidden p-6 text-slate-600 bg-white border-t border-slate-100">
+                        Sistem keamanan kami sangat ketat. Penjemputan anak wajib menyerahkan kartu identitas penjemput khusus dari sekolah. Lingkungan sekolah kami dilengkapi dengan gerbang pengaman satu pintu, kamera pengawas CCTV 24 jam, dan guru piket yang berjaga hingga siswa terakhir dijemput.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="border border-slate-200 rounded-2xl overflow-hidden">
+                    <button class="w-full text-left p-6 font-bold text-slate-800 flex justify-between items-center bg-slate-50 hover:bg-slate-100/80 transition" onclick="toggleFaq(this)">
+                        <span>Apakah boleh mencicil biaya masuk/uang pangkal?</span>
+                        <i class="fa-solid fa-chevron-down text-sm transition-transform duration-200"></i>
+                    </button>
+                    <div class="hidden p-6 text-slate-600 bg-white border-t border-slate-100">
+                        Ya, sangat boleh. Kami memberikan fasilitas skema cicilan hingga 3 kali pembayaran dalam waktu 3 bulan pertama setelah siswa dinyatakan lulus pendaftaran demi meringankan beban wali murid.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & FOOTER SECTION -->
+    <footer id="kontak" class="bg-brand-dark text-white/90 pt-20 pb-8 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5 mix-blend-overlay" style="background-image: radial-gradient(#fff 2px, transparent 2px); background-size: 24px 24px;"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
+                
+                <!-- Footer Info Column -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-2xl bg-brand-primary flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+                            <i class="fa-solid fa-mosque"></i>
+                        </div>
+                        <div>
+                            <span class="block text-lg font-bold text-white tracking-wider leading-none">AL-FATIH</span>
+                            <span class="block text-xs font-semibold text-brand-accent tracking-widest mt-1">TK ISLAM MODERN</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-slate-300 leading-relaxed max-w-sm">
+                        Menyelenggarakan pendidikan Islam modern terbaik sejak dini demi mempersiapkan generasi berakhlak mulia di Kelurahan Tanganapada, Murhum, Kota Baubau, Sulawesi Tenggara.
+                    </p>
+                    <div class="flex gap-4 text-xl">
+                        <a href="#" class="hover:text-brand-accent transition"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="hover:text-brand-accent transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="hover:text-brand-accent transition"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="hover:text-brand-accent transition"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick links Column -->
+                <div class="lg:col-span-3 space-y-6">
+                    <h4 class="font-bold text-white uppercase tracking-wider text-sm border-b border-brand-primary pb-2 w-max">Tautan Penting</h4>
+                    <ul class="space-y-3 text-sm text-slate-300">
+                        <li><a href="#beranda" class="hover:text-brand-accent transition flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-[10px]"></i> Beranda Utama</a></li>
+                        <li><a href="#profil" class="hover:text-brand-accent transition flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-[10px]"></i> Visi & Misi Profil</a></li>
+                        <li><a href="#program" class="hover:text-brand-accent transition flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-[10px]"></i> Kurikulum Unggulan</a></li>
+                        <li><a href="#biaya" class="hover:text-brand-accent transition flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-[10px]"></i> Simulasi Biaya Masuk</a></li>
+                        <li><a href="#ppdb" class="hover:text-brand-accent transition flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-[10px]"></i> Registrasi PPDB Online</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Map Column -->
+                <div class="lg:col-span-4 space-y-6">
+                    <h4 class="font-bold text-white uppercase tracking-wider text-sm border-b border-brand-primary pb-2 w-max">Alamat & Kontak</h4>
+                    <ul class="space-y-4 text-sm text-slate-300">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot text-brand-accent mt-1 shrink-0 text-base"></i>
+                            <span>Jl. Murhum No. 45, Kelurahan Tanganapada, Kecamatan Murhum, Kota Baubau, Sulawesi Tenggara (93713)</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-brand-accent shrink-0 text-base"></i>
+                            <span>(0402) 234-567 / 0812-3456-7890</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-brand-accent shrink-0 text-base"></i>
+                            <span>info@tkalfatihbaubau.sch.id</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Copyright info -->
+            <div class="pt-8 text-center text-xs text-slate-400">
+                <p>&copy; 2026 TK Islam Modern Al-Fatih Tanganapada Baubau. Seluruh hak cipta dilindungi undang-undang.</p>
+                <p class="mt-1">Didesain dengan Cinta &sem; Karakter Pendidikan Islami Modern.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <script>
+        // DOM Elements
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const successModal = document.getElementById('successModal');
+        const modalNamaAnak = document.getElementById('modalNamaAnak');
+
+        // Mobile Menu Toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenuBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+            } else {
+                mobileMenu.classList.add('hidden');
+                mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars-staggered"></i>';
+            }
+        });
+
+        // Close mobile drawer upon click on any navigation link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars-staggered"></i>';
+            });
+        });
+
+        // FAQ Toggle Functionality
+        function toggleFaq(button) {
+            const nextDiv = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            
+            if (nextDiv.classList.contains('hidden')) {
+                nextDiv.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+                button.classList.add('bg-emerald-50/50');
+            } else {
+                nextDiv.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+                button.classList.remove('bg-emerald-50/50');
+            }
+        }
+
+        // Live Tuition Cost Calculator
+        function hitungBiaya() {
+            // Standard prices
+            const basePangkal = 1500000;
+            const baseSPP = 150000;
+            
+            // Get selected variables
+            const isBrotherDiscount = document.getElementById('diskonKandung').checked;
+            const isPaidUpfront = document.getElementById('diskonLunas').checked;
+
+            // Calculate discounts
+            let discountValue = 0;
+            if (isBrotherDiscount) {
+                discountValue += (0.10 * basePangkal); // 10% of base registration
+            }
+            if (isPaidUpfront) {
+                discountValue += 250000; // Flat discount
+            }
+
+            // Calculations
+            const finalTotal = (basePangkal + baseSPP) - discountValue;
+
+            // Update DOM element values
+            document.getElementById('nominalPangkal').innerText = `Rp ${basePangkal.toLocaleString('id-ID')}`;
+            document.getElementById('nominalSPP').innerText = `Rp ${baseSPP.toLocaleString('id-ID')}`;
+            document.getElementById('nominalDiskon').innerText = `-Rp ${discountValue.toLocaleString('id-ID')}`;
+            document.getElementById('nominalTotal').innerText = `Rp ${finalTotal.toLocaleString('id-ID')}`;
+        }
+
+        // Handle Form Submissions & Custom Toast Confirmation
+        function submitForm(event) {
+            event.preventDefault(); // prevent actual page reload
+
+            // Extract values
+            const namaSiswa = document.getElementById('namaAnak').value;
+            const namaOrangTua = document.getElementById('namaOrtu').value;
+            const handphone = document.getElementById('telepon').value;
+
+            // Simple validation check (extra layer)
+            if (!namaSiswa || !namaOrangTua || !handphone) {
+                return;
+            }
+
+            // Populate success modal text
+            modalNamaAnak.innerText = namaSiswa;
+
+            // Open custom modal
+            successModal.classList.remove('hidden');
+
+            // Optional: reset form after delay or on modal closure
+            document.getElementById('ppdbForm').reset();
+            // Recalculate cost back to default
+            hitungBiaya();
+        }
+
+        // Close Custom Modal dialog
+        function closeModal() {
+            successModal.classList.add('hidden');
+        }
+
+        // Initialize state on page load
+        window.onload = function() {
+            hitungBiaya();
+        };
+    </script>
+</body>
+</html>
